@@ -9,7 +9,10 @@ Source1:	intel-media-driver.metainfo.xml
 #Source9:	parse-intel-media-driver.py
 
 # This is an Intel only vaapi backend
-ExclusiveArch:	i686 x86_64
+# It fails on i686
+# https://github.com/intel/media-driver/issues/356
+ExclusiveArch:	x86_64
+
 
 BuildRequires:	cmake >= 3.5
 BuildRequires:	gcc
