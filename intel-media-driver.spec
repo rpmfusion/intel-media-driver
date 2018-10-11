@@ -46,6 +46,9 @@ rm -f Tools/MediaDriverTools/UMDPerfProfiler/MediaPerfParser
 mkdir build
 pushd build
 %cmake \
+%ifarch %{ix86}
+  -DARCH:STRING=32 \
+%endif
   -DMEDIA_RUN_TEST_SUITE:BOOL=False \
   -DRUN_TEST_SUITE:BOOL=False \
   ..
