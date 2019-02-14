@@ -1,6 +1,6 @@
 Name:		intel-media-driver
-Version:	18.3.0
-Release:	2%{?dist}
+Version:	18.4.1
+Release:	1%{?dist}
 Summary:	The Intel Media Driver for VAAPI
 License:	MIT and BSD
 URL:		https://github.com/intel/media-driver
@@ -96,6 +96,9 @@ touch -r LICENSE.md %{buildroot}%{_sysconfdir}/profile.d/intel-media.sh
 
 
 %changelog
+* Thu Feb 14 2019 Nicolas Chauvet <kwizart@gmail.com> - 18.4.1-1
+- Update to 18.4.1
+
 * Wed Oct 10 2018 Nicolas Chauvet <kwizart@gmail.com> - 18.3.0-2
 - Use metainfodir
 - Enable AppStream support (no hardware detection yet)
