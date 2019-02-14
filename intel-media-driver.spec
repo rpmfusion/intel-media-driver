@@ -69,7 +69,7 @@ popd
 
 # Fix perm on library to be stripped
 chmod +x %{buildroot}%{_libdir}/dri/iHD_drv_video.so
-chmod +x %{buildroot}%{_libdir}/igfxcmrt64.so
+chmod +x %{buildroot}%{_libdir}/libigfxcmrt.so*
 
 # install AppData and add modalias provides
 mkdir -p %{buildroot}%{_metainfodir}
