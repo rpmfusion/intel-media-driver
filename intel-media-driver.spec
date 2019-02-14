@@ -85,6 +85,10 @@ fn=%{buildroot}%{_metainfodir}/intel-media-driver.metainfo.xml
 sed -i -e '/LIBVA_DRIVERS_PATH/ d' %{buildroot}%{_sysconfdir}/profile.d/intel-media.sh
 touch -r LICENSE.md %{buildroot}%{_sysconfdir}/profile.d/intel-media.sh
 
+# Don't provide the headers - Used by anyone else ?
+rm -rf %{buildroot}%{_includedir}/igfxcmrt
+rm -rf %{buildroot}%{_libddir}/pkgconfig
+
 
 %files
 %doc README.md
