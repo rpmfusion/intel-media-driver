@@ -91,7 +91,7 @@ touch -r LICENSE.md %{buildroot}%{_sysconfdir}/profile.d/intel-media.sh
 %license LICENSE.md
 %config(noreplace) %{_sysconfdir}/profile.d/intel-media.sh
 %{_libdir}/dri/iHD_drv_video.so
-%{_libdir}/igfxcmrt64.so
+%{_libdir}/libigfxcmrt.so*
 %{_metainfodir}/intel-media-driver.metainfo.xml
 
 
