@@ -81,10 +81,6 @@ fn=%{buildroot}%{_metainfodir}/intel-media-driver.metainfo.xml
 %{SOURCE9} src/i965_pciids.h | xargs appstream-util add-provide ${fn} modalias
 %endif
 
-# Don't hardcode LIBVA_LIBRARY_PATH
-sed -i -e '/LIBVA_DRIVERS_PATH/ d' %{buildroot}%{_sysconfdir}/profile.d/intel-media.sh
-touch -r LICENSE.md %{buildroot}%{_sysconfdir}/profile.d/intel-media.sh
-
 # Don't provide the headers - Used by anyone else ?
 rm -rf %{buildroot}%{_includedir}/igfxcmrt
 rm -rf %{buildroot}%{_libddir}/pkgconfig
@@ -93,7 +89,6 @@ rm -rf %{buildroot}%{_libddir}/pkgconfig
 %files
 %doc README.md
 %license LICENSE.md
-%config(noreplace) %{_sysconfdir}/profile.d/intel-media.sh
 %{_libdir}/dri/iHD_drv_video.so
 %{_libdir}/libigfxcmrt.so*
 %{_metainfodir}/intel-media-driver.metainfo.xml
