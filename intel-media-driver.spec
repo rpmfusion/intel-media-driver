@@ -83,7 +83,7 @@ fn=%{buildroot}%{_metainfodir}/intel-media-driver.metainfo.xml
 
 # Don't provide the headers - Used by anyone else ?
 rm -rf %{buildroot}%{_includedir}/igfxcmrt
-rm -rf %{buildroot}%{_libddir}/pkgconfig
+rm -rf %{buildroot}%{_libdir}/pkgconfig
 
 
 %files
