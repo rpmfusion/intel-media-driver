@@ -22,6 +22,7 @@ BuildRequires:	gcc-c++
 BuildRequires:	libappstream-glib >= 0.6.3
 
 BuildRequires:	pkgconfig(igdgmm)
+BuildRequires:	pkgconfig(libcmrt)
 BuildRequires:	pkgconfig(libva) >= 1.3.0
 BuildRequires:	pkgconfig(pciaccess)
 BuildRequires:	pkgconfig(x11)
@@ -52,6 +53,7 @@ pushd build
 %ifarch %{ix86}
   -DARCH:STRING=32 \
 %endif
+  -DBUILD_CMRTLIB:BOOL=False \
   -DMEDIA_RUN_TEST_SUITE:BOOL=False \
   -DRUN_TEST_SUITE:BOOL=False \
   ..
