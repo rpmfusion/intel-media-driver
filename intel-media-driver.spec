@@ -71,7 +71,6 @@ popd
 
 # Fix perm on library to be stripped
 chmod +x %{buildroot}%{_libdir}/dri/iHD_drv_video.so
-chmod +x %{buildroot}%{_libdir}/libigfxcmrt.so*
 
 # install AppData and add modalias provides
 mkdir -p %{buildroot}%{_metainfodir}
@@ -92,7 +91,6 @@ rm -rf %{buildroot}%{_libdir}/pkgconfig
 %doc README.md
 %license LICENSE.md
 %{_libdir}/dri/iHD_drv_video.so
-%{_libdir}/libigfxcmrt.so*
 %{_metainfodir}/intel-media-driver.metainfo.xml
 
 
