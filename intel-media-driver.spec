@@ -1,6 +1,6 @@
 Name:		intel-media-driver
 Version:	18.4.1
-Release:	2%{?dist}
+Release:	3%{?dist}
 Summary:	The Intel Media Driver for VAAPI
 License:	MIT and BSD
 URL:		https://github.com/intel/media-driver
@@ -95,6 +95,9 @@ rm -rf %{buildroot}%{_libdir}/pkgconfig
 
 
 %changelog
+* Tue Mar 05 2019 RPM Fusion Release Engineering <leigh123linux@gmail.com> - 18.4.1-3
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_30_Mass_Rebuild
+
 * Wed Feb 20 2019 Nicolas Chauvet <kwizart@gmail.com> - 18.4.1-2
 - Unbundle cmrt
 
