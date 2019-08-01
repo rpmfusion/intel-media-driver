@@ -1,7 +1,7 @@
 #global pre .pre3
 
 Name:		intel-media-driver
-Version:	19.2
+Version:	19.2.1
 Release:	1%{?dist}
 Summary:	The Intel Media Driver for VAAPI
 License:	MIT and BSD
@@ -97,6 +97,9 @@ rm -rf %{buildroot}%{_libdir}/pkgconfig
 
 
 %changelog
+* Thu Aug 01 2019 Nicolas Chauvet <kwizart@gmail.com> - 19.2.1-1
+- Update to 19.2.1
+
 * Fri Jul 05 2019 Nicolas Chauvet <kwizart@gmail.com> - 19.2-1
 - Update to Final 19.2
 
