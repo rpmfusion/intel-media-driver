@@ -47,6 +47,9 @@ chmod -x LICENSE.md README.md CMakeLists.txt
 # Remove pre-built (but unused) files
 rm -f Tools/MediaDriverTools/UMDPerfProfiler/MediaPerfParser
 
+# Remove all -Werror compile flags
+sed -e "/-Werror/d" -i cmake/linux/media_compile_flags_linux.cmake
+
 
 %build
 mkdir build
