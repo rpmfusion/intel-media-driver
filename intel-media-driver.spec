@@ -1,33 +1,32 @@
 #global pre .pre3
 
-Name:		intel-media-driver
-Version:	19.2.1
-Release:	3%{?dist}
-Summary:	The Intel Media Driver for VAAPI
-License:	MIT and BSD
-URL:		https://github.com/intel/media-driver
-Source0:	%{url}/archive/intel-media-%{version}%{?pre}.tar.gz
-Source1:	intel-media-driver.metainfo.xml
-#Source9:	parse-intel-media-driver.py
+Name:       intel-media-driver
+Version:    19.3.0
+Release:    1%{?dist}
+Summary:    The Intel Media Driver for VAAPI
+License:    MIT and BSD
+URL:        https://github.com/intel/media-driver
+Source0:    %{url}/archive/intel-media-%{version}%{?pre}.tar.gz
+Source1:    intel-media-driver.metainfo.xml
 
 # This is an Intel only vaapi backend
 # It fails on i686
 # https://github.com/intel/media-driver/issues/356
-ExclusiveArch:	x86_64
+ExclusiveArch:  x86_64
 
 
-BuildRequires:	cmake >= 3.5
-BuildRequires:	gcc
-BuildRequires:	gcc-c++
+BuildRequires:  cmake >= 3.5
+BuildRequires:  gcc
+BuildRequires:  gcc-c++
 
 # AppStream metadata generation
-BuildRequires:	libappstream-glib >= 0.6.3
+BuildRequires:  libappstream-glib >= 0.6.3
 
-BuildRequires:	pkgconfig(igdgmm)
-BuildRequires:	pkgconfig(libcmrt)
-BuildRequires:	pkgconfig(libva) >= 1.3.0
-BuildRequires:	pkgconfig(pciaccess)
-BuildRequires:	pkgconfig(x11)
+BuildRequires:  pkgconfig(igdgmm)
+BuildRequires:  pkgconfig(libcmrt)
+BuildRequires:  pkgconfig(libva) >= 1.3.0
+BuildRequires:  pkgconfig(pciaccess)
+BuildRequires:  pkgconfig(x11)
 
 # There is a modified version of libdrm
 Provides: bundled(libdrm)
@@ -100,6 +99,9 @@ rm -rf %{buildroot}%{_libdir}/pkgconfig
 
 
 %changelog
+* Wed Oct 09 2019 Vasiliy N. Glazov <vascom2@gmail.com> - 19.3.0-1
+- Update to 19.3.0
+
 * Fri Sep 20 2019 Vasiliy N. Glazov <vascom2@gmail.com> - 19.2.1-3
 - Rebuild for new intel-gmmlib
 
