@@ -1,12 +1,12 @@
 #global pre .pre3
 
 Name:       intel-media-driver
-Version:    19.3.1
-Release:    1%{?dist}
+Version:    19.4.0
+Release:    0.1%{?dist}
 Summary:    The Intel Media Driver for VAAPI
 License:    MIT and BSD
 URL:        https://github.com/intel/media-driver
-Source0:    %{url}/archive/intel-media-%{version}%{?pre}.tar.gz
+Source0:    %{url}/archive/intel-media-19.4.pre2%{?pre}.tar.gz
 Source1:    intel-media-driver.metainfo.xml
 
 # This is an Intel only vaapi backend
@@ -39,7 +39,7 @@ and video post processing for GEN based graphics hardware.
 
 
 %prep
-%autosetup -p1 -n media-driver-intel-media-%{version}%{?pre}
+%autosetup -p1 -n media-driver-intel-media-19.4.pre2%{?pre}
 # Fix license perm
 chmod -x LICENSE.md README.md CMakeLists.txt
 
@@ -99,6 +99,9 @@ rm -rf %{buildroot}%{_libdir}/pkgconfig
 
 
 %changelog
+* Fri Dec 20 2019 Vasiliy N. Glazov <vascom2@gmail.com> - 19.4.0-0.1
+- Update to 19.4.0 pre2
+
 * Wed Oct 30 2019 Vasiliy N. Glazov <vascom2@gmail.com> - 19.3.1-1
 - Update to 19.3.1
 
