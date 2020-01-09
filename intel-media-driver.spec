@@ -36,6 +36,7 @@ Provides: bundled(libdrm)
 The Intel Media Driver for VAAPI is a new VA-API (Video Acceleration API)
 user mode driver supporting hardware accelerated decoding, encoding,
 and video post processing for GEN based graphics hardware.
+https://01.org/intel-media-for-linux
 
 
 %prep
