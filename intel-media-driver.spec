@@ -47,6 +47,7 @@ rm -f Tools/MediaDriverTools/UMDPerfProfiler/MediaPerfParser
 
 # Remove all -Werror compile flags
 sed -e "/-Werror/d" -i media_driver/cmake/linux/media_compile_flags_linux.cmake
+sed -e "/-Werror/d" -i media_driver/media_top_cmake.cmake
 
 
 %build
