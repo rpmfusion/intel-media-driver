@@ -2,7 +2,7 @@
 
 Name:       intel-media-driver
 Version:    19.4.0
-Release:    3%{?dist}
+Release:    4%{?dist}
 Summary:    The Intel Media Driver for VAAPI
 License:    MIT and BSD
 URL:        https://github.com/intel/media-driver
@@ -10,9 +10,7 @@ Source0:    %{url}/archive/intel-media-%{version}%{?pre}.tar.gz
 Source1:    intel-media-driver.metainfo.xml
 
 # This is an Intel only vaapi backend
-# It fails on i686
-# https://github.com/intel/media-driver/issues/356
-ExclusiveArch:  x86_64
+ExclusiveArch:  i686 x86_64
 
 
 BuildRequires:  cmake >= 3.5
@@ -54,6 +52,9 @@ sed -e "/-Werror/d" -i media_driver/cmake/linux/media_compile_flags_linux.cmake
 %build
 mkdir build
 pushd build
+%ifarch %{ix86}
+export CXXFLAGS="%{optflags} -D_FILE_OFFSET_BITS=64"
+%endif
 %cmake \
 %ifarch %{ix86}
   -DARCH:STRING=32 \
@@ -100,6 +101,9 @@ rm -rf %{buildroot}%{_libdir}/pkgconfig
 
 
 %changelog
+* Mon Mar 09 2020 Nicolas Chauvet <kwizart@gmail.com> - 19.4.0-4
+- Enable i686 build
+
 * Wed Feb 05 2020 RPM Fusion Release Engineering <leigh123linux@gmail.com> - 19.4.0-3
 - Rebuilt for https://fedoraproject.org/wiki/Fedora_32_Mass_Rebuild
 
