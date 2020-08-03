@@ -2,7 +2,7 @@
 
 Name:       intel-media-driver
 Version:    20.2.0
-Release:    2%{?dist}
+Release:    3%{?dist}
 Summary:    The Intel Media Driver for VAAPI
 License:    MIT and BSD
 URL:        https://github.com/intel/media-driver
@@ -51,8 +51,6 @@ sed -e "/-Werror/d" -i media_driver/media_top_cmake.cmake
 
 
 %build
-mkdir build
-pushd build
 %ifarch %{ix86}
 export CXXFLAGS="%{optflags} -D_FILE_OFFSET_BITS=64"
 %endif
@@ -65,16 +63,11 @@ export CXXFLAGS="%{optflags} -D_FILE_OFFSET_BITS=64"
   -DRUN_TEST_SUITE:BOOL=False \
   ..
 
-%make_build V=1
-
-popd
+%cmake_build V=1
 
 
 %install
-pushd build
-%make_install
-
-popd
+%cmake_install
 
 # Fix perm on library to be stripped
 chmod +x %{buildroot}%{_libdir}/dri/iHD_drv_video.so
@@ -102,6 +95,9 @@ rm -rf %{buildroot}%{_libdir}/pkgconfig
 
 
 %changelog
+* Mon Aug 03 2020 Nicolas Chauvet <kwizart@gmail.com> - 20.2.0-3
+- Rebuilt
+
 * Fri Jul 10 2020 Nicolas Chauvet <kwizart@gmail.com> - 20.2.0-2
 - Rebuilt
 
