@@ -1,5 +1,7 @@
 #global pre .pre3
 
+%undefine __cmake_in_source_build
+
 Name:       intel-media-driver
 Version:    20.2.0
 Release:    4%{?dist}
@@ -13,7 +15,7 @@ Source1:    intel-media-driver.metainfo.xml
 ExclusiveArch:  i686 x86_64
 
 
-BuildRequires:  cmake >= 3.5
+BuildRequires:  cmake3 >= 3.5
 BuildRequires:  gcc
 BuildRequires:  gcc-c++
 
@@ -54,20 +56,19 @@ sed -e "/-Werror/d" -i media_driver/media_top_cmake.cmake
 %ifarch %{ix86}
 export CXXFLAGS="%{optflags} -D_FILE_OFFSET_BITS=64"
 %endif
-%cmake \
+%cmake3 \
 %ifarch %{ix86}
   -DARCH:STRING=32 \
 %endif
   -DBUILD_CMRTLIB:BOOL=False \
   -DMEDIA_RUN_TEST_SUITE:BOOL=False \
-  -DRUN_TEST_SUITE:BOOL=False \
-  ..
+  -DRUN_TEST_SUITE:BOOL=False
 
-%cmake_build V=1
+%cmake3_build
 
 
 %install
-%cmake_install
+%cmake3_install
 
 # Fix perm on library to be stripped
 chmod +x %{buildroot}%{_libdir}/dri/iHD_drv_video.so
