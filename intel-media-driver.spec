@@ -1,10 +1,10 @@
-#global pre .pre3
+%global pre .pre3
 
 %undefine __cmake_in_source_build
 
 Name:       intel-media-driver
-Version:    20.2.0
-Release:    4%{?dist}
+Version:    20.3
+Release:    0.1%{?pre}%{?dist}
 Summary:    The Intel Media Driver for VAAPI
 License:    MIT and BSD
 URL:        https://github.com/intel/media-driver
@@ -96,6 +96,9 @@ rm -rf %{buildroot}%{_libdir}/pkgconfig
 
 
 %changelog
+* Wed Sep 02 2020 Nicolas Chauvet <kwizart@gmail.com> - 20.3-0.1.pre3
+- Update to 20.3.pre3
+
 * Wed Aug 19 2020 RPM Fusion Release Engineering <leigh123linux@gmail.com> - 20.2.0-4
 - Rebuilt for https://fedoraproject.org/wiki/Fedora_33_Mass_Rebuild
 
