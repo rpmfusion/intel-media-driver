@@ -1,10 +1,10 @@
-%global pre .pre3
+%global pre .pre8
 
 %undefine __cmake_in_source_build
 
 Name:       intel-media-driver
 Version:    20.3
-Release:    0.1%{?pre}%{?dist}
+Release:    0.2%{?pre}%{?dist}
 Summary:    The Intel Media Driver for VAAPI
 License:    MIT and BSD
 URL:        https://github.com/intel/media-driver
@@ -96,6 +96,9 @@ rm -rf %{buildroot}%{_libdir}/pkgconfig
 
 
 %changelog
+* Tue Sep 29 2020 Nicolas Chauvet <kwizart@gmail.com> - 20.3-0.2.pre8
+- Update to pre8
+
 * Wed Sep 02 2020 Nicolas Chauvet <kwizart@gmail.com> - 20.3-0.1.pre3
 - Update to 20.3.pre3
 
