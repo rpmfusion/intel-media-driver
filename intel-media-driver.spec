@@ -1,10 +1,10 @@
-%global pre .pre8
+#global pre .pre8
 
 %undefine __cmake_in_source_build
 
 Name:       intel-media-driver
-Version:    20.3
-Release:    0.2%{?pre}%{?dist}
+Version:    20.3.0
+Release:    1%{?dist}
 Summary:    The Intel Media Driver for VAAPI
 License:    MIT and BSD
 URL:        https://github.com/intel/media-driver
@@ -24,7 +24,7 @@ BuildRequires:  libappstream-glib >= 0.6.3
 
 BuildRequires:  pkgconfig(igdgmm)
 BuildRequires:  pkgconfig(libcmrt)
-BuildRequires:  pkgconfig(libva) >= 1.3.0
+BuildRequires:  pkgconfig(libva) >= 1.6.0
 BuildRequires:  pkgconfig(pciaccess)
 BuildRequires:  pkgconfig(x11)
 
@@ -96,6 +96,9 @@ rm -rf %{buildroot}%{_libdir}/pkgconfig
 
 
 %changelog
+* Wed Sep 30 2020 Nicolas Chauvet <kwizart@gmail.com> - 20.3.0-1
+- Update to 20.3.0
+
 * Tue Sep 29 2020 Nicolas Chauvet <kwizart@gmail.com> - 20.3-0.2.pre8
 - Update to pre8
 
