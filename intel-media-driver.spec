@@ -3,7 +3,7 @@
 %undefine __cmake_in_source_build
 
 Name:       intel-media-driver
-Version:    20.3.0
+Version:    20.4.0
 Release:    1%{?dist}
 Summary:    The Intel Media Driver for VAAPI
 License:    MIT and BSD
@@ -96,6 +96,9 @@ rm -rf %{buildroot}%{_libdir}/pkgconfig
 
 
 %changelog
+* Thu Nov 05 2020 Nicolas Chauvet <kwizart@gmail.com> - 20.4.0-1
+- Update to 20.4.0
+
 * Wed Sep 30 2020 Nicolas Chauvet <kwizart@gmail.com> - 20.3.0-1
 - Update to 20.3.0
 
