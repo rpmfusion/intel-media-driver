@@ -4,7 +4,7 @@
 
 Name:       intel-media-driver
 Version:    20.4.5
-Release:    1%{?dist}
+Release:    2%{?dist}
 Summary:    The Intel Media Driver for VAAPI
 License:    MIT and BSD
 URL:        https://github.com/intel/media-driver
@@ -97,6 +97,9 @@ rm -rf %{buildroot}%{_libdir}/pkgconfig
 
 
 %changelog
+* Wed Mar 24 2021 Nicolas Chauvet <kwizart@gmail.com> - 20.4.5-2
+- Backport patch
+
 * Thu Feb 25 2021 Nicolas Chauvet <kwizart@gmail.com> - 20.4.5-1
 - Update to 20.4.5
 
