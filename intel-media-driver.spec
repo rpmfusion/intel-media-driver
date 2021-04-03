@@ -20,7 +20,7 @@ BuildRequires:  gcc-c++
 # AppStream metadata generation
 BuildRequires:  libappstream-glib >= 0.6.3
 
-BuildRequires:  pkgconfig(igdgmm)
+BuildRequires:  pkgconfig(igdgmm) >= 11.2.0
 BuildRequires:  pkgconfig(libcmrt)
 BuildRequires:  pkgconfig(libva) >= 1.6.0
 BuildRequires:  pkgconfig(pciaccess)
