@@ -10,13 +10,12 @@ License:    MIT and BSD
 URL:        https://github.com/intel/media-driver
 Source0:    %{url}/archive/intel-media-%{version}%{?pre}.tar.gz
 Source1:    intel-media-driver.metainfo.xml
-Patch0:     https://github.com/intel/media-driver/commit/2f9c97c3a592a32a3fb21a56fcba72765fae8742.patch
 
 # This is an Intel only vaapi backend
 ExclusiveArch:  i686 x86_64
 
 
-BuildRequires:  cmake3 >= 3.5
+BuildRequires:  cmake >= 3.5
 BuildRequires:  gcc
 BuildRequires:  gcc-c++
 
@@ -57,7 +56,7 @@ sed -e "/-Werror/d" -i media_driver/media_top_cmake.cmake
 %ifarch %{ix86}
 export CXXFLAGS="%{optflags} -D_FILE_OFFSET_BITS=64"
 %endif
-%cmake3 \
+%cmake \
 %ifarch %{ix86}
   -DARCH:STRING=32 \
 %endif
@@ -65,11 +64,11 @@ export CXXFLAGS="%{optflags} -D_FILE_OFFSET_BITS=64"
   -DMEDIA_RUN_TEST_SUITE:BOOL=False \
   -DRUN_TEST_SUITE:BOOL=False
 
-%cmake3_build
+%cmake_build
 
 
 %install
-%cmake3_install
+%cmake_install
 
 # Fix perm on library to be stripped
 chmod +x %{buildroot}%{_libdir}/dri/iHD_drv_video.so
