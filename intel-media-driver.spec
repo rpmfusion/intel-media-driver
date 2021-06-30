@@ -1,7 +1,7 @@
 #global pre .pre8
 
 Name:       intel-media-driver
-Version:    21.1.3
+Version:    21.2.3
 Release:    1%{?dist}
 Summary:    The Intel Media Driver for VAAPI
 License:    MIT and BSD
@@ -94,6 +94,9 @@ rm -rf %{buildroot}%{_libdir}/pkgconfig
 
 
 %changelog
+* Wed Jun 30 2021 Nicolas Chauvet <kwizart@gmail.com> - 21.2.3-1
+- Update to 21.2.3
+
 * Sat Apr 03 2021 Nicolas Chauvet <kwizart@gmail.com> - 21.1.3-1
 - Update to 21.1.3
 
