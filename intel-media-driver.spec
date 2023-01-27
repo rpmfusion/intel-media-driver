@@ -2,7 +2,7 @@
 
 Name:       intel-media-driver
 Version:    22.5.4
-Release:    2%{?dist}
+Release:    3%{?dist}
 Summary:    The Intel Media Driver for VAAPI
 License:    MIT and BSD
 URL:        https://github.com/intel/media-driver
@@ -96,6 +96,9 @@ rm -rf %{buildroot}%{_libdir}/pkgconfig
 
 
 %changelog
+* Fri Jan 27 2023 Nicolas Chauvet <kwizart@gmail.com> - 22.5.4-3
+- rebuilt
+
 * Fri Jan 13 2023 Michael Cronenworth <mike@cchtml.com> - 22.5.4-2
 - Include patch to fix Gen 8/9/10 encoding performance
 
