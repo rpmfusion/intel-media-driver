@@ -21,13 +21,16 @@ BuildRequires:  gcc-c++
 BuildRequires:  libappstream-glib >= 0.6.3
 
 BuildRequires:  pkgconfig(igdgmm) >= 11.2.0
-BuildRequires:  pkgconfig(libcmrt)
+# cmrt is archived as a separate project - now bundled
+# https://github.com/intel/cmrt
+#BuildRequires:  pkgconfig(libcmrt)
 BuildRequires:  pkgconfig(libva) >= 1.6.0
 BuildRequires:  pkgconfig(pciaccess)
 BuildRequires:  pkgconfig(x11)
 
 # There is a modified version of libdrm
 Provides: bundled(libdrm)
+Provides: bundled(libcmrt)
 
 
 %description
