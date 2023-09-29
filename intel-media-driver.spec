@@ -1,8 +1,8 @@
 #global pre .pre8
 
 Name:       intel-media-driver
-Version:    23.2.4
-Release:    2%{?dist}
+Version:    23.3.4
+Release:    1%{?dist}
 Summary:    The Intel Media Driver for VAAPI
 License:    MIT and BSD
 URL:        https://github.com/intel/media-driver
@@ -97,6 +97,9 @@ rm -rf %{buildroot}%{_libdir}/pkgconfig
 
 
 %changelog
+* Fri Sep 29 2023 Nicolas Chauvet <nchauvet@linagora.com> - 23.3.4-1
+- Update to 23.3.4
+
 * Thu Aug 03 2023 RPM Fusion Release Engineering <sergiomb@rpmfusion.org> - 23.2.4-2
 - Rebuilt for https://fedoraproject.org/wiki/Fedora_39_Mass_Rebuild
 
