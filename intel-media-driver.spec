@@ -32,6 +32,9 @@ BuildRequires:  pkgconfig(x11)
 Provides: bundled(libdrm)
 Provides: bundled(libcmrt)
 
+# Compatible instead of conflicting to accomodate fedora multimedia comps
+Provides: libva-intel-media-driver = %{version}-%{release}
+
 
 %description
 The Intel Media Driver for VAAPI is a new VA-API (Video Acceleration API)
