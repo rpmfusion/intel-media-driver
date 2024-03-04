@@ -112,7 +112,7 @@ mv %{buildroot}%{_libdir}/dri{,-nonfree}/iHD_drv_video.so
 
 %changelog
 * Mon Mar 04 2024 Nicolas Chauvet <kwizart@gmail.com> - 24.1.3-3
-- Avoid conflicts on fedora counterpart
+- Avoid conflicts on fedora counterpart - rfbz#6861
 
 * Mon Feb 19 2024 Sérgio Basto <sergio@serjux.com> - 24.1.3-2
 - With build target multilibs
