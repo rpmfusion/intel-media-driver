@@ -2,7 +2,7 @@
 
 Name:       intel-media-driver
 Version:    24.1.3
-Release:    2%{?dist}
+Release:    3%{?dist}
 Summary:    The Intel Media Driver for VAAPI
 License:    MIT and BSD
 URL:        https://github.com/intel/media-driver
@@ -34,6 +34,11 @@ Provides: bundled(libcmrt)
 
 # Compatible instead of conflicting to accomodate fedora multimedia comps
 Provides: libva-intel-media-driver = %{version}-%{release}
+
+# See https://src.fedoraproject.org/rpms/libva/pull-request/5
+%if 0%{?fedora} >= 40
+Conflicts: libva%{__isa} < 1.20.0-5
+%endif
 
 
 %description
@@ -91,15 +96,24 @@ fn=%{buildroot}%{_metainfodir}/intel-media-driver.metainfo.xml
 rm -rf %{buildroot}%{_includedir}/igfxcmrt
 rm -rf %{buildroot}%{_libdir}/pkgconfig
 
+# Alternate directory for f40+
+# See https://src.fedoraproject.org/rpms/libva/pull-request/5
+%if 0%{?fedora} >= 40
+mv %{buildroot}%{_libdir}/dri{,-nonfree}/iHD_drv_video.so
+%endif
+
 
 %files
 %doc README.md
 %license LICENSE.md
-%{_libdir}/dri/iHD_drv_video.so
+%{_libdir}/dri*/iHD_drv_video.so
 %{_metainfodir}/intel-media-driver.metainfo.xml
 
 
 %changelog
+* Mon Mar 04 2024 Nicolas Chauvet <kwizart@gmail.com> - 24.1.3-3
+- Avoid conflicts on fedora counterpart
+
 * Mon Feb 19 2024 Sérgio Basto <sergio@serjux.com> - 24.1.3-2
 - With build target multilibs
 
