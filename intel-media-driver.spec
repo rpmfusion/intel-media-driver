@@ -99,7 +99,7 @@ rm -rf %{buildroot}%{_libdir}/pkgconfig
 # Alternate directory for f40+
 # See https://src.fedoraproject.org/rpms/libva/pull-request/5
 %if 0%{?fedora} >= 40
-mv %{buildroot}%{_libdir}/dri{,-nonfree}/iHD_drv_video.so
+mv %{buildroot}%{_libdir}/dri{,-nonfree}
 %endif
 
 
