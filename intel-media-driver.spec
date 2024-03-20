@@ -1,8 +1,8 @@
 #global pre .pre8
 
 Name:       intel-media-driver
-Version:    24.1.3
-Release:    3%{?dist}
+Version:    24.1.5
+Release:    1%{?dist}
 Summary:    The Intel Media Driver for VAAPI
 License:    MIT and BSD
 URL:        https://github.com/intel/media-driver
@@ -111,6 +111,9 @@ mv %{buildroot}%{_libdir}/dri{,-nonfree}
 
 
 %changelog
+* Wed Mar 20 2024 Nicolas Chauvet <kwizart@gmail.com> - 24.1.5-1
+- Update to 24.1.5
+
 * Mon Mar 04 2024 Nicolas Chauvet <kwizart@gmail.com> - 24.1.3-3
 - Avoid conflicts on fedora counterpart - rfbz#6861
 
