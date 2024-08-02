@@ -2,7 +2,7 @@
 
 Name:       intel-media-driver
 Version:    24.1.5
-Release:    1%{?dist}
+Release:    2%{?dist}
 Summary:    The Intel Media Driver for VAAPI
 License:    MIT and BSD
 URL:        https://github.com/intel/media-driver
@@ -111,6 +111,9 @@ mv %{buildroot}%{_libdir}/dri{,-nonfree}
 
 
 %changelog
+* Fri Aug 02 2024 RPM Fusion Release Engineering <sergiomb@rpmfusion.org> - 24.1.5-2
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_41_Mass_Rebuild
+
 * Wed Mar 20 2024 Nicolas Chauvet <kwizart@gmail.com> - 24.1.5-1
 - Update to 24.1.5
 
