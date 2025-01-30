@@ -8,6 +8,8 @@ License:    MIT and BSD
 URL:        https://github.com/intel/media-driver
 Source0:    %{url}/archive/intel-media-%{version}%{?pre}.tar.gz
 Source1:    intel-media-driver.metainfo.xml
+# fix build with GCC 15
+Patch0:     %{name}-gcc15.patch
 
 # This is an Intel only vaapi backend
 ExclusiveArch:  i686 x86_64
@@ -113,6 +115,7 @@ mv %{buildroot}%{_libdir}/dri{,-nonfree}
 %changelog
 * Wed Jan 29 2025 RPM Fusion Release Engineering <sergiomb@rpmfusion.org> - 24.4.4-2
 - Rebuilt for https://fedoraproject.org/wiki/Fedora_42_Mass_Rebuild
+- Fix build with GCC 15 (Dominik Mierzejewski)
 
 * Tue Dec 24 2024 Nicolas Chauvet <kwizart@gmail.com> - 24.4.4-1
 - Update to 24.4.4
