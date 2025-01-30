@@ -1,7 +1,7 @@
 #global pre .pre8
 
 Name:       intel-media-driver
-Version:    23.4.3
+Version:    23.4.4
 Release:    1%{?dist}
 Summary:    The Intel Media Driver for VAAPI
 License:    MIT and BSD
@@ -96,6 +96,9 @@ rm -rf %{buildroot}%{_libdir}/pkgconfig
 
 
 %changelog
+* Thu Jan 30 2025 Nicolas Chauvet <kwizart@gmail.com> - 23.4.4-1
+- Update to 23.4.4
+
 * Tue Jan 02 2024 Nicolas Chauvet <kwizart@gmail.com> - 23.4.3-1
 - Update to 23.4.3
 
