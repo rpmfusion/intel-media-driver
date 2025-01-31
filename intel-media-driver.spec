@@ -8,8 +8,6 @@ License:    MIT and BSD
 URL:        https://github.com/intel/media-driver
 Source0:    %{url}/archive/intel-media-%{version}%{?pre}.tar.gz
 Source1:    intel-media-driver.metainfo.xml
-# fix build with GCC 15
-Patch0:     %{name}-gcc15.patch
 
 # This is an Intel only vaapi backend
 ExclusiveArch:  i686 x86_64
