@@ -1,7 +1,5 @@
-#global pre .pre8
-
 Name:       intel-media-driver
-Version:    25.1.0
+Version:    25.1.4
 Release:    1%{?dist}
 Summary:    The Intel Media Driver for VAAPI
 License:    MIT and BSD
@@ -24,7 +22,8 @@ BuildRequires:  pkgconfig(igdgmm) >= 11.2.0
 # cmrt is archived as a separate project - now bundled
 # https://github.com/intel/cmrt
 #BuildRequires:  pkgconfig(libcmrt)
-BuildRequires:  pkgconfig(libva) >= 1.6.0
+# va/va_dev_vvc.h is provided by libva-2.22.0 or higher
+BuildRequires:  pkgconfig(libva) >= 1.22.0
 BuildRequires:  pkgconfig(pciaccess)
 BuildRequires:  pkgconfig(x11)
 
@@ -111,6 +110,10 @@ mv %{buildroot}%{_libdir}/dri{,-nonfree}
 
 
 %changelog
+* Sun Mar 23 2025 KOSHIKAWA Kenichi <reishoku.misc@pm.me> - 25.1.4-1
+- Update to 25.1.4
+- Update dependency requirement to pkgconfig(libva) => 1.22.0 / libva-devel => 2.22.0
+
 * Fri Jan 31 2025 Nicolas Chauvet <kwizart@gmail.com> - 25.1.0-1
 - Update to 25.1.0
 
