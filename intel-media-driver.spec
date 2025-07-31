@@ -1,7 +1,7 @@
 #global pre .pre8
 
 Name:       intel-media-driver
-Version:    23.4.4
+Version:    25.2.6
 Release:    1%{?dist}
 Summary:    The Intel Media Driver for VAAPI
 License:    MIT and BSD
@@ -34,6 +34,11 @@ Provides: bundled(libcmrt)
 
 # Compatible instead of conflicting to accomodate fedora multimedia comps
 Provides: libva-intel-media-driver = %{version}-%{release}
+
+# See https://src.fedoraproject.org/rpms/libva/pull-request/5
+%if 0%{?fedora} >= 40
+Conflicts: libva%{__isa} < 1.20.0-5
+%endif
 
 
 %description
@@ -87,17 +92,63 @@ fn=%{buildroot}%{_metainfodir}/intel-media-driver.metainfo.xml
 rm -rf %{buildroot}%{_includedir}/igfxcmrt
 rm -rf %{buildroot}%{_libdir}/pkgconfig
 
+# Alternate directory for f40+
+# See https://src.fedoraproject.org/rpms/libva/pull-request/5
+%if 0%{?fedora} >= 40
+mv %{buildroot}%{_libdir}/dri{,-nonfree}
+%endif
+
 
 %files
 %doc README.md
 %license LICENSE.md
-%{_libdir}/dri/iHD_drv_video.so
+%{_libdir}/dri*/iHD_drv_video.so
 %{_metainfodir}/intel-media-driver.metainfo.xml
 
 
 %changelog
-* Thu Jan 30 2025 Nicolas Chauvet <kwizart@gmail.com> - 23.4.4-1
-- Update to 23.4.4
+* Wed Jul 16 2025 Nicolas Chauvet <kwizart@gmail.com> - 25.2.6-1
+- Update to 25.2.6
+
+* Sun Mar 23 2025 Nicolas Chauvet <kwizart@gmail.com> - 25.1.4-1
+- Update to 25.1.4
+
+* Fri Jan 31 2025 Nicolas Chauvet <kwizart@gmail.com> - 25.1.0-1
+- Update to 25.1.0
+
+* Wed Jan 29 2025 RPM Fusion Release Engineering <sergiomb@rpmfusion.org> - 24.4.4-2
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_42_Mass_Rebuild
+- Fix build with GCC 15 (Dominik Mierzejewski)
+
+* Tue Dec 24 2024 Nicolas Chauvet <kwizart@gmail.com> - 24.4.4-1
+- Update to 24.4.4
+
+* Thu Oct 24 2024 Nicolas Chauvet <kwizart@gmail.com> - 24.3.4-1
+- Update to 24.3.4
+
+* Mon Aug 12 2024 Nicolas Chauvet <kwizart@gmail.com> - 24.2.5-1
+- Update to 24.2.5
+
+* Fri Aug 02 2024 RPM Fusion Release Engineering <sergiomb@rpmfusion.org> - 24.1.5-2
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_41_Mass_Rebuild
+
+* Wed Mar 20 2024 Nicolas Chauvet <kwizart@gmail.com> - 24.1.5-1
+- Update to 24.1.5
+
+* Mon Mar 04 2024 Nicolas Chauvet <kwizart@gmail.com> - 24.1.3-3
+- Avoid conflicts on fedora counterpart - rfbz#6861
+
+* Mon Feb 19 2024 Sérgio Basto <sergio@serjux.com> - 24.1.3-2
+- With build target multilibs
+
+* Fri Feb 02 2024 Nicolas Chauvet <kwizart@gmail.com> - 24.1.3-1
+- Update to 24.1.3
+
+* Fri Feb 02 2024 Nicolas Chauvet <kwizart@gmail.com> - 24.1.2-1
+- Update to 24.1.2
+
+* Thu Feb 01 2024 Nicolas Chauvet <kwizart@gmail.com> - 23.4.3-2
+- Drop Werror
 
 * Tue Jan 02 2024 Nicolas Chauvet <kwizart@gmail.com> - 23.4.3-1
 - Update to 23.4.3
