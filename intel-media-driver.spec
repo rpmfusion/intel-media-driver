@@ -66,6 +66,7 @@ sed -e "/-Werror/d" -i media_driver/media_top_cmake.cmake
 export CXXFLAGS="%{optflags} -D_FILE_OFFSET_BITS=64"
 %endif
 %cmake \
+   -DCMAKE_POLICY_VERSION_MINIMUM=3.5 \
 %ifarch %{ix86}
   -DARCH:STRING=32 \
 %endif
