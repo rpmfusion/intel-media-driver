@@ -1,8 +1,8 @@
 #global pre .pre8
 
 Name:       intel-media-driver
-Version:    26.2.4
-Release:    2%{?dist}
+Version:    26.3.5
+Release:    1%{?dist}
 Summary:    The Intel Media Driver for VAAPI
 License:    MIT and BSD
 URL:        https://github.com/intel/media-driver
@@ -112,6 +112,9 @@ mv %{buildroot}%{_libdir}/dri{,-nonfree}
 
 
 %changelog
+* Wed Sep 30 2026 Nicolas Chauvet <kwizart@gmail.com> - 26.3.5-1
+- Update to 26.3.5
+
 * Sun Aug 02 2026 RPM Fusion Release Engineering <leigh123linux@rpmfusion.org> - 26.2.4-2
 - Rebuilt for https://fedoraproject.org/wiki/Fedora_45_Mass_Rebuild
 
